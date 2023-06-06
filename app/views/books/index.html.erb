@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Index Books <%= link_to "New book", new_book_path, class:"btn btn-success" %></h1>
+ <%= render "shared/searchbar", bookpath: "/books" %>
+<div class="d-flex flex-wrap" id="books">
+    
+  <% @books.each do |book| %>
+      <%= render book %>
+
+
+  <% end %>
+   
+
+
+
+</div>
+
+

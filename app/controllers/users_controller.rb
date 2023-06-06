@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    
     if @users.update(users_params)
       redirect_to users_path, notice: 'users was successfully updated.'
     else
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 
   def destroy
     @users.destroy
-    authorize @users
+  
     redirect_to users_path, notice: 'user was successfully destroyed.'
   end
 

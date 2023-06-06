@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  resources :books
+
+
   devise_for :users
   resources :users
-
+  resources :products, only: [:show]
+  resources :clients
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

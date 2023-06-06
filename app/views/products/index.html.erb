@@ -1,0 +1,38 @@
+<h1>Liste des utilisateurs</h1>
+<%= link_to ' New', new_product_path, class: "fa fa-plus btn btn-success"%>
+  <div class="card-body">
+    <% l = 0 %>
+      <table class="table table-hover">
+          <thead  class="thead-dark">
+            <tr>
+                <th scope="row" colspan="1">email</th>
+                <th scope="row" colspan="1">Fistname</th>
+                <th scope="row" colspan="1">Lastname</th>
+                <th scope="row" colspan="1">tel</th>
+                <th scope="row" colspan="1">Comment</th>
+                <th colspan="1">role</th>
+            </tr>
+          </thead>
+        <% @products.each do |product| %>
+            <tbody >
+                <tr>
+                  <td scope="row"><%= product.email %></td>
+                  <td><%= product.firstname %></td>
+                  <td><%= product.lastname %></td>
+                  <td><%= product.tel %></td>
+                  <td><%= product.comment %></td>
+                  <td><%= product.user.name %></td>
+                  <td class="taches">
+                    <div class="d-flex">
+                      <%= link_to '', edit_product_path(product), class: "btn fa fa-pen tdhidden" %>
+                      <%= button_to '', product, method: :delete, :onclick => "return confirm('Are you sure you want to delete?')", class: "btn text-danger fa fa-trash tdhidden" %>
+                    </div>
+                  </td>
+                </tr>
+            </tbody>
+        <% end %>
+      </table>
+  </div>
+
+<%= link_to '', root_path, class: "fas fa-arrow-left btn btn-outline-secondary" %>
+<%= link_to " Back", :back , class: "fas fa-arrow-left btn btn-outline-secondary"%>

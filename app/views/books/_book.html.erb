@@ -1,0 +1,20 @@
+<div class="card m-3" style="width: 10rem;">
+  <%= image_tag "book.png"%>
+  <div class="card-body">
+    <h2 class="card-title"><%= book.name %></h2>
+    <p class="card-text">
+      <strong>Number:</strong> <%= book.number %>
+    </p>
+    <p class="card-text">
+      <strong>Client:</strong> <%= book.client.fullname %>
+      <strong>date:</strong> <%= book.datelivraison.strftime('%d-%m-%Y') %><br>
+      <strong>etat:</strong> <%= book.etat %><br>
+      <strong>Sur site? </strong> <%= book.sursite %>
+    </p>
+    <%= link_to "Edit this book", edit_book_path(book), class:"btn btn-success" %>
+    <%= button_to "x", book, method: :delete, :onclick => "return confirm('Are you sure you want to delete?", class: "btn btn-danger" %>
+    <%= button_to "Destroy this book", book, method: :delete; %>
+    <%= link_to 'x', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+
+  </div>
+</div>
